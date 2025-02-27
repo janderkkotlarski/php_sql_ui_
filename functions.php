@@ -17,7 +17,7 @@ function tabStacks($amount) {
 }
 
 // Construct input form
-function makeFormInput($tag, $entry, $amount) {
+function makeFormInput($tag, $entry, $amount = 0) {
 	tabStacks($amount);
 	// $amount = 3;
 	// Translated input field header
@@ -37,6 +37,20 @@ function makeFormInput($tag, $entry, $amount) {
 	tabStacks($amount);
 	echo "<br>";
 	newLine();
+}
+
+function makeInputLines($data_table) {
+	if (!empty($data_table)) {
+		foreach ($data_table as $entry_line) {
+			if (!empty($entry_line)) {
+				echo "<nav>";
+				foreach($entry_line as $tag => $entry) {
+					makeFormInput($tag, $entry);
+				}
+				echo "</nav>";
+			}
+		}
+	}
 }
 
 // Construct button within a form
